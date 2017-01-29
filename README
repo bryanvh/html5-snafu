@@ -1,0 +1,7 @@
+Snafu
+
+This is an HTML5 version of the game Snafu.
+
+There are two players, Red and Blue. Each player operates a "snake" that moves around the grid. Both players share the same keyboard: Red uses AWSD keys and Blue uses arrow keys.
+
+If your snake runs into the path left behind by itself or the other snake, you lose. The object is to trap the other snake before you run out of room.
