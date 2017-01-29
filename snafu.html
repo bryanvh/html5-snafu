@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script type="text/javascript" src="kinetic-v5.0.1.min.js"></script>
+    <script type="text/javascript" src="keyboard.js"></script>
+    <script type="text/javascript" src="snafu.js"></script>
+    <script defer="defer">
+
+      var stage = new Kinetic.Stage({
+        container: 'container',
+        width: 500.0,
+        height: 500.0
+      });
+
+      var units = 25;
+      var keyMap1 = ['w','s','a','d'];
+      var keyMap2 = ['up','down','left','right'];
+      var board, p1, p2;
+
+      function escHandler(e, key, c) {
+        stage.removeChildren();
+        init();
+      }
+
+      function init() {
+        KeyboardJS.enable();
+        board = SnafuApp.buildBoard(stage, units);
+        p1 = SnafuApp.buildPlayer("Player 1", '#d9534f', board, keyMap1, 2, 2);
+        p2 = SnafuApp.buildPlayer("Player 2", '#428bca', board, keyMap2, units - 3, units - 3);
+        KeyboardJS.on('esc', escHandler);
+      }
+
+      init();
+
+    </script>
+  </body>
+</html>
